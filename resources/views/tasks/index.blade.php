@@ -32,7 +32,7 @@
 
                                <li class="list-group-item">
                                    {{$task->name}}
-                                   <div class="btn btn-primary btn-sm float-right">View</div>
+                                   <a href="/tasks/{{$task->id}}" class="btn btn-primary btn-sm float-right">View</a>
                                </li>
 
                            @endforeach
