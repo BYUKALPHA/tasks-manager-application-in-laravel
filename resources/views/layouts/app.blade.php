@@ -29,6 +29,9 @@
             <li class="nav-item active">
                 <a class="nav-link" href="/tasks">Tasks <span class="sr-only">(current)</span></a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/new-task">Create Task <span class="sr-only">(current)</span></a>
+            </li>
 
 
 

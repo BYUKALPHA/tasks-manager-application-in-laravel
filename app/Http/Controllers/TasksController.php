@@ -18,4 +18,21 @@ public function show($taskid)
 return view('tasks.show')->with('yego',Task::find($taskid));
 }
 
+public function create()
+{
+    return view('tasks.create');
+}
+public function store()
+{
+    $data = request()->all();
+
+    $task = new Task();
+    $task->name = $data['name'];
+    $task->description = $data['description'];
+    $task->completed = false;
+
+    $task->save();
+    return redirect ('/tasks');
+}
+
 }

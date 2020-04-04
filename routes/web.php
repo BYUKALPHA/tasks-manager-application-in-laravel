@@ -16,3 +16,9 @@ Route::get('/', function () {
 });
 Route::get('tasks','TasksController@index');
 Route::get('tasks/{task}','TasksController@show');
+
+//Display create form
+Route::get('new-task','TasksController@create');
+
+//store information to database
+Route::post('store-tasks','TasksController@store');
