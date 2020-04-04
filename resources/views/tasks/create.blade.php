@@ -10,6 +10,17 @@
 <div class="card card-default">
     <div class="card-header">Create New Task</div>
     <div class="card-body">
+        @if($errors->any())
+            <div class="alert alert-danger">
+<div class="ul list-group">
+    @foreach($errors->all() as $error)
+        <div class="li list-group-item">
+            {{$error}}
+        </div>
+        @endforeach
+</div>
+            </div>
+            @endif
         <form action="/store-tasks" method="POST">
             @csrf
             <div class="form-group">

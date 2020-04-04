@@ -24,6 +24,11 @@ public function create()
 }
 public function store()
 {
+    $this -> validate(request(), [
+        'name'=>'required|min:4|max:15',
+        'description' => 'required'
+
+    ]);
     $data = request()->all();
 
     $task = new Task();
