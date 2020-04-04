@@ -73,4 +73,12 @@ public function destroy(Task $task)
 return redirect('/tasks');
 }
 
+public function complete(Task $task){
+$task ->completed = true;
+$task -> save();
+    session()->flash('success','Task Completed successfully');
+return redirect('/tasks');
+
+}
+
 }
