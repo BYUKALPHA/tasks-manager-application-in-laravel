@@ -22,3 +22,7 @@ Route::get('new-task','TasksController@create');
 
 //store information to database
 Route::post('store-tasks','TasksController@store');
+
+Route::get('tasks/{task}/edit','TasksController@edit');
+
+Route::post('tasks/{task}/update-tasks','TasksController@update');

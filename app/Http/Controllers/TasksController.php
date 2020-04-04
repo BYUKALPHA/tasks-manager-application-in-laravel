@@ -40,4 +40,31 @@ public function store()
     return redirect ('/tasks');
 }
 
+public function edit($taskid)
+{
+
+    $task = Task::find($taskid);
+return view('tasks.edit')->with('task', $task);
+
+}
+
+public function update($taskid)
+{
+    $this -> validate(request(), [
+        'name'=>'required|min:4|max:15',
+        'description' => 'required'
+    ]);
+    $data = request()->all();
+
+    $task = Task::find($taskid);
+    $task->name = $data['name'];
+    $task->description = $data['description'];
+    $task->completed = false;
+
+    $task->save();
+    return redirect ('/tasks');
+
+
+}
+
 }
