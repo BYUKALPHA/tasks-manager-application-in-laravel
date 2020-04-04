@@ -12,10 +12,10 @@ public function index(){
 
     return view('tasks.index')->with('tasks',Task::All());
 }
-public function show($taskid)
+public function show(Task $task)
 {
 
-return view('tasks.show')->with('yego',Task::find($taskid));
+return view('tasks.show')->with('yego',$task);
 }
 
 public function create()
@@ -40,23 +40,19 @@ public function store()
     return redirect ('/tasks');
 }
 
-public function edit($taskid)
+public function edit(Task $task)
 {
-
-    $task = Task::find($taskid);
 return view('tasks.edit')->with('task', $task);
 
 }
 
-public function update($taskid)
+public function update(Task $task)
 {
     $this -> validate(request(), [
         'name'=>'required|min:4|max:15',
         'description' => 'required'
     ]);
     $data = request()->all();
-
-    $task = Task::find($taskid);
     $task->name = $data['name'];
     $task->description = $data['description'];
     $task->completed = false;
@@ -66,9 +62,9 @@ public function update($taskid)
 
 
 }
-public function destroy($taskid)
+public function destroy(Task $task)
 {
-    $task = Task::find($taskid);
+
     $task->delete();
 
 return redirect('/tasks');
