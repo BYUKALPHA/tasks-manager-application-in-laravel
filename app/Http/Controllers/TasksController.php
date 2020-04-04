@@ -66,5 +66,12 @@ public function update($taskid)
 
 
 }
+public function destroy($taskid)
+{
+    $task = Task::find($taskid);
+    $task->delete();
+
+return redirect('/tasks');
+}
 
 }
