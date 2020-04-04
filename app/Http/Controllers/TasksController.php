@@ -25,7 +25,7 @@ public function create()
 public function store()
 {
     $this -> validate(request(), [
-        'name'=>'required|min:4|max:15',
+        'name'=>'required|min:4|max:25',
         'description' => 'required'
 
     ]);
@@ -37,6 +37,7 @@ public function store()
     $task->completed = false;
 
     $task->save();
+    session()->flash('success','Task created successfully');
     return redirect ('/tasks');
 }
 
@@ -58,6 +59,7 @@ public function update(Task $task)
     $task->completed = false;
 
     $task->save();
+    session()->flash('success','Task updated successfully');
     return redirect ('/tasks');
 
 
@@ -66,6 +68,7 @@ public function destroy(Task $task)
 {
 
     $task->delete();
+    session()->flash('success','Task Deleted successfully');
 
 return redirect('/tasks');
 }
